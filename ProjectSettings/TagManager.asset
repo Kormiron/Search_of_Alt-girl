@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Emenies
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Boundaries
+  - Water
+  - UI
+  - Player
+  - Enemies
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Boundaries
+    uniqueID: 1098162657
+    locked: 0
+  - name: Water
+    uniqueID: 1340135979
+    locked: 0
+  - name: Background
+    uniqueID: 1235851027
+    locked: 0
+  - name: GroundObject
+    uniqueID: 979709705
+    locked: 0
+  - name: Weapon
+    uniqueID: 2388200571
+    locked: 0
+  - name: Object
+    uniqueID: 2736469453
+    locked: 0
+  - name: UI
+    uniqueID: 962530029
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []

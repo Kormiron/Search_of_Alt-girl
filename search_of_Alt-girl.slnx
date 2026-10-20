@@ -1,0 +1,5 @@
+﻿<Solution>
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Alebardium.BloodlinesUI.csproj" />
+  <Project Path="Unity.2D.Welcome.csproj" />
+</Solution>
