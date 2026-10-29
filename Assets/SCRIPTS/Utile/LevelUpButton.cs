@@ -19,6 +19,31 @@ public class LevelUpButton : MonoBehaviour
         AssignedWeapon = Weapon;
     }
 
+    public void SelectSpeedUpgrade()
+    {
+        if (Player.Instance != null)
+        {
+            Player.Instance.AddSpeedLvlUp(0.25f);
+        }
+
+        if (UIController.Instance != null)
+        {
+            UIController.Instance.LevelUpPanelClose();
+        }
+    }
+
+    public void SelectHealthUpgrade()
+    {
+        if (Player.Instance != null)
+        {
+            Player.Instance.AddHealthLvlUp(5f);
+        }
+
+        if (UIController.Instance != null)
+        {
+            UIController.Instance.LevelUpPanelClose();
+        }
+    }
     public void SelectUpgrade()
     {
         AssignedWeapon.LevelUp();

@@ -205,8 +205,8 @@ MonoBehaviour:
   ScoreToGive: 10
   direction: {x: 0, y: 0}
   BatPrefab: {fileID: 4248272898668331196, guid: 55bff834d62a5ce489945597a294ce57, type: 3}
-  StopDistance: 5
-  SummonInterval: 8
+  StopDistance: 3
+  SummonInterval: 3
 --- !u!1 &7678442647680829872
 GameObject:
   m_ObjectHideFlags: 0

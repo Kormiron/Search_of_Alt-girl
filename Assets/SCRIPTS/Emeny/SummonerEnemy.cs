@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class SumonerEnemy : Enemy
+public class SummonerEnemy : Enemy
 {
     [SerializeField] private GameObject BatPrefab;
-    [SerializeField] private float StopDistance = 5f;
-    [SerializeField] private float SummonInterval = 4f;
+    [SerializeField] private float StopDistance ;
+    [SerializeField] private float SummonInterval ;
     private float SummonTimer;
 
     protected void Update()

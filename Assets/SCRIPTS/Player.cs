@@ -132,6 +132,20 @@ public class Player : MonoBehaviour
         
     }
 
+    public void AddHealthLvlUp(float amount)
+    {
+        PlayerMaxHealth += amount;
+        PlayerHealth += amount;
+        
+        if (UIController.Instance != null)
+        {
+            UIController.Instance.UpdateHelthSlider();
+        }
+    }
+    public void AddSpeedLvlUp(float amount)
+    {
+        MoveSpeed += amount;
+    }
     public void LevelUp()
     {
         currentLevel++;
