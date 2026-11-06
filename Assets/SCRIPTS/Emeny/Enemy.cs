@@ -4,9 +4,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] private SpriteRenderer SpriteRender;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float MoveSpeed;
+    [SerializeField] protected SpriteRenderer SpriteRender;
+    [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] protected float MoveSpeed;
 
     [SerializeField] private float Damage;
     [SerializeField] private float Health;
@@ -79,6 +79,10 @@ public class Enemy : MonoBehaviour
         PushCounter = PushTime;
         if (Health <= 0)
         {
+            if (AudioManager.Instance != null && AudioManager.Instance.EnemyDeathSound != null)
+            {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.EnemyDeathSound);
+            }
             Destroy(gameObject);
             Instantiate(DestroyEffect, transform.position, transform.rotation);
             Player.Instance.GetExperience(ExperienceToGive);

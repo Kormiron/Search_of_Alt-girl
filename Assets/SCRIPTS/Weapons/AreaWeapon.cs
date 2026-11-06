@@ -12,10 +12,12 @@ public class AreaWeapon : Weapon
         SpawnCounter -= Time.deltaTime;
         if(SpawnCounter <= 0)
         {
+            if (AudioManager.Instance != null && AudioManager.Instance.PlayerAttackSound != null)
+            {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.PlayerAttackSound);
+            }
             SpawnCounter = Stats[WeaponLevel].cooldown;
             Instantiate(prefab, transform.position, transform.rotation, transform);
-
-
         }
     }
 }

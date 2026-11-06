@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
 
     public LevelUpButton[] LevelUpButtons;
 
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

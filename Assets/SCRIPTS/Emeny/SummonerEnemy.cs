@@ -9,39 +9,40 @@ public class SummonerEnemy : Enemy
 
     protected void Update()
     {
-        if (GameManager.Instance != null && !GameManager.Instance.GameActive)
+        if (GameManager.Instance != null && GameManager.Instance.currentState != GameManager.GameState.Gameplay)
         {
-            GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+            if (rb != null) rb.linearVelocity = Vector2.zero;
             return;
         }
 
         if (Player.Instance != null && Player.Instance.gameObject.activeSelf)
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.transform.position);
-
-            SpriteRenderer sr = GetComponent<SpriteRenderer>();
-            if (sr != null)
+            if (SpriteRender != null)
             {
-                sr.flipX = Player.Instance.transform.position.x > transform.position.x;
+                SpriteRender.flipX = Player.Instance.transform.position.x > transform.position.x;
             }
 
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.transform.position);
+
             if (distanceToPlayer > StopDistance)
             {
                 Vector2 dir = (Player.Instance.transform.position - transform.position).normalized;
-                rb.linearVelocity = dir * 2f;
+                rb.linearVelocity = dir * MoveSpeed;
             }
             else
             {
                 rb.linearVelocity = Vector2.zero;
             }
-
             SummonTimer += Time.deltaTime;
             if (SummonTimer >= SummonInterval)
             {
                 SummonTimer = 0f;
                 SummonBats();
             }
+        }
+        else
+        {
+            if (rb != null) rb.linearVelocity = Vector2.zero;
         }
     }
 

@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         {
             if (rb != null)
             {
-                rb.linearVelocity = Vector2.zero; // или rb.velocity = Vector2.zero для более старых версий Unity
+                rb.linearVelocity = Vector2.zero; 
             }
             return;
         }
@@ -112,6 +112,10 @@ public class Player : MonoBehaviour
 
             if (PlayerHealth <= 0)
             {
+                if (AudioManager.Instance != null && AudioManager.Instance.PlayerDeathSound != null)
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.PlayerDeathSound);
+                }
                 gameObject.SetActive(false);
                 GameManager.Instance.GameOver();
             }
@@ -153,6 +157,10 @@ public class Player : MonoBehaviour
         UIController.Instance.UpdateExperienceSlider();
         UIController.Instance.LevelUpPanelOpen();
         UIController.Instance.LevelUpButtons[0].ActivateButton(ActiveButton);
+        if (AudioManager.Instance != null && AudioManager.Instance.LevelUpSound != null)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.LevelUpSound);
+        }
         if (GameManager.Instance != null)
         {
             GameManager.Instance.SetState(GameManager.GameState.LevelUp);

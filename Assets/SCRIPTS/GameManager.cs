@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     // contolling timer if game overed
     void Start()
     {
+        
         SetState(GameState.Gameplay);
         if (mainPanel != null) mainPanel.SetActive(true);
         if (optionsPanel != null) optionsPanel.SetActive(false);
@@ -117,14 +119,19 @@ public class GameManager : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        AudioListener.volume = volume;
+        if (volume <= 0.001f)
+        {
+            AudioListener.volume = 0f;
+        }
+        else
+        {
+            AudioListener.volume = volume;
+        }
+
         PlayerPrefs.SetFloat("GameVolume", volume);
     }
 
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-    }
+   
     public void GameOver()
     {
         SetState(GameState.GameOver);
